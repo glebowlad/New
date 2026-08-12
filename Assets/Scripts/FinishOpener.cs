@@ -18,6 +18,7 @@ public class FinishOpener : MonoBehaviour
         opener.isTrigger = true;
         lapTime = LapTimeManager.SecCount;
         LapTimeManager.SecCount = 0;
+        LapCounter.CurrentLap++;
         if (lapTime < bestTime)
         {
             bestTime = lapTime;
