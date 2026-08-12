@@ -36,6 +36,11 @@ public class LapTimeManager : MonoBehaviour
     }
     public void SetBestTime(float best)
     {
+        if (best == Mathf.Infinity)
+        {
+            bestTimeText.text = "00:00.00";
+            return;
+        }
         bestTime = System.TimeSpan.FromSeconds(best);
         bestTimeText.text = string.Format("{0:D2}:{1:D2}.{2:D2}", bestTime.Minutes, bestTime.Seconds, bestTime.Milliseconds / 10);
     }

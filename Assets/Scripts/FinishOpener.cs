@@ -9,7 +9,7 @@ public class FinishOpener : MonoBehaviour
     void Start()
     {
         bestTime = Mathf.Infinity;
-        PlayerPrefs.GetFloat("best", bestTime);
+       bestTime= PlayerPrefs.GetFloat("best", bestTime);
         lapTimeManager.SetBestTime(bestTime);
     }
 
@@ -23,6 +23,9 @@ public class FinishOpener : MonoBehaviour
             bestTime = lapTime;
             lapTimeManager.SetBestTime(bestTime);
             PlayerPrefs.SetFloat("best", bestTime);
+            PlayerPrefs.Save();
+
+            
         }
     }
 }

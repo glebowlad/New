@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FinishRestriction : MonoBehaviour
 {
-    public BoxCollider collider;
+    private BoxCollider collider;
     void Start()
     {
         collider = GetComponent<BoxCollider>();
