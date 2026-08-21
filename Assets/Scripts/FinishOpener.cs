@@ -15,18 +15,21 @@ public class FinishOpener : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        opener.isTrigger = true;
-        lapTime = LapTimeManager.SecCount;
-        LapTimeManager.SecCount = 0;
-        LapCounter.CurrentLap++;
-        if (lapTime < bestTime)
+        if (other.tag == "Player")
         {
-            bestTime = lapTime;
-            lapTimeManager.SetBestTime(bestTime);
-            PlayerPrefs.SetFloat("best", bestTime);
-            PlayerPrefs.Save();
+            opener.isTrigger = true;
+            lapTime = LapTimeManager.SecCount;
+            LapTimeManager.SecCount = 0;
+            LapCounter.CurrentLap++;
+            if (lapTime < bestTime)
+            {
+                bestTime = lapTime;
+                lapTimeManager.SetBestTime(bestTime);
+                PlayerPrefs.SetFloat("best", bestTime);
+                PlayerPrefs.Save();
 
-            
+
+            }
         }
     }
 }
